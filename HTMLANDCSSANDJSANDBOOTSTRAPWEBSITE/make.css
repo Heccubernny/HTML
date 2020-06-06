@@ -1,0 +1,109 @@
+body {
+    overflow:hidden;
+    background:#ddd;
+}
+
+
+.loading-animation {
+    position:absolute;
+    top:50%;
+    left:50%;
+}
+
+.first-ball, .second-ball, .third-ball {
+    top:-50px;
+    left:-150px;
+    position:absolute;
+    background:#4286f4;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+}
+@keyframes horizontal {
+    0% {
+        left:-150px;
+    }
+    50% {
+        left:150px;
+    }
+    100% {
+        left:-150px;
+    }
+}
+.first-ball, .second-ball, .third-ball {
+    ...
+    animation:horizontal 5s;
+    animation-timing-function:ease-in-out;
+}
+.second-ball {
+    animation-delay:0.2s;
+}
+.third-ball {
+    animation-delay:0.4s;
+}
+
+@keyframes vertical {
+    0% {
+        top:-50px;
+    }
+    50% {
+        top:50px;
+    }
+    100% {
+        top:-50px;
+    }
+}
+
+.first-ball, .second-ball, .third-ball {
+    animation: horizontal 2s infinite, vertical 1s infinite;
+    animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1), ease-in-out; 
+    animation-delay: 0s, .25s;
+}
+.second-ball {
+    animation: horizontal 2s infinite, vertical 1s infinite;
+    animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1), ease-in-out; 
+    animation-delay:0.2s, 0.45s;
+}
+.third-ball {
+    animation: horizontal 2s infinite, vertical 1s infinite;
+    animation-timing-function: cubic-bezier(0.3, 0, 0.7, 1), ease-in-out; 
+    animation-delay:0.4s, 0.65s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+.loading-animation {
+    ...
+    animation: fadeIn 2s 1;
+    animation-timing-function: cubic-bezier(.7, 0, 1, 1);
+}
+.second-ball {
+    ...
+    opacity:0.7;
+}
+
+.third-ball {
+    ...
+    opacity:0.5;
+}
+.first-ball, .second-ball, .third-ball {
+    ...
+    animation:horizontal 2s infinite, vertical 1s infinite, color 3s infinite;
+    transition-duration: 12s;
+}
+
+.first-ball, .second-ball, .third-ball {
+    ...
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+keyframes color {
+    50% {
+        background:#cd43ef;
+    }
+}
